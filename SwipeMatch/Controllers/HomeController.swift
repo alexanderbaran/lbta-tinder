@@ -317,7 +317,7 @@ class HomeController: UIViewController, SettingsControllerDelegate, LoginControl
                 }
                 // Save opposite user.
                 guard let currentUser = self.user else { return }
-                let otherMatchData: [String: Any] = ["name": currentUser.name ?? "", "profileImageUrl": currentUser.imageUrl1 ?? "", "uid": cardUID, "timestamp": Timestamp(date: Date())]
+                let otherMatchData: [String: Any] = ["name": currentUser.name ?? "", "profileImageUrl": currentUser.imageUrl1 ?? "", "uid": currentUser.uid ?? "", "timestamp": Timestamp(date: Date())]
                 Firestore.firestore().collection("matches_messages").document(cardUID).collection("matches").document(uid).setData(otherMatchData) { (err: Error?) in
                     if let err = err {
                         print("Failed to save match info:", err)

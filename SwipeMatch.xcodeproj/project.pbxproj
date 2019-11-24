@@ -21,9 +21,16 @@
 		A3BC75C123860C4D00A8995E /* SendMessageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75C023860C4D00A8995E /* SendMessageButton.swift */; };
 		A3BC75C323860FC200A8995E /* KeepSwipingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75C223860FC200A8995E /* KeepSwipingButton.swift */; };
 		A3BC75C6238710E000A8995E /* MatchesMessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75C5238710E000A8995E /* MatchesMessagesController.swift */; };
-		A3BC75C82387390A00A8995E /* MatchesNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75C72387390A00A8995E /* MatchesNavBar.swift */; };
 		A3BC75CA238831C900A8995E /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75C9238831C900A8995E /* ChatLogController.swift */; };
 		A3BC75CF2389899700A8995E /* MessagesNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75CE2389899700A8995E /* MessagesNavBar.swift */; };
+		A3BC75D1238A115900A8995E /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75D0238A115900A8995E /* CustomInputAccessoryView.swift */; };
+		A3BC75D3238A32FC00A8995E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75D2238A32FC00A8995E /* Message.swift */; };
+		A3BC75D5238AD40700A8995E /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75D4238AD40700A8995E /* Match.swift */; };
+		A3BC75D7238AD42C00A8995E /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75D6238AD42C00A8995E /* MatchCell.swift */; };
+		A3BC75D9238AD46D00A8995E /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75D8238AD46D00A8995E /* MessageCell.swift */; };
+		A3BC75DB238AFEF600A8995E /* MatchesHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75DA238AFEF600A8995E /* MatchesHorizontalController.swift */; };
+		A3BC75DD238AFF3F00A8995E /* MatchesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75DC238AFF3F00A8995E /* MatchesHeader.swift */; };
+		A3BC75DF238B004800A8995E /* MatchesNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC75DE238B004800A8995E /* MatchesNavBar.swift */; };
 		A3C264C42305350A00B2C8C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C264C32305350A00B2C8C6 /* AppDelegate.swift */; };
 		A3C264C92305350A00B2C8C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3C264C72305350A00B2C8C6 /* Main.storyboard */; };
 		A3C264CB2305350B00B2C8C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C264CA2305350B00B2C8C6 /* Assets.xcassets */; };
@@ -57,9 +64,16 @@
 		A3BC75C023860C4D00A8995E /* SendMessageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageButton.swift; sourceTree = "<group>"; };
 		A3BC75C223860FC200A8995E /* KeepSwipingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepSwipingButton.swift; sourceTree = "<group>"; };
 		A3BC75C5238710E000A8995E /* MatchesMessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesMessagesController.swift; sourceTree = "<group>"; };
-		A3BC75C72387390A00A8995E /* MatchesNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesNavBar.swift; sourceTree = "<group>"; };
 		A3BC75C9238831C900A8995E /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		A3BC75CE2389899700A8995E /* MessagesNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesNavBar.swift; sourceTree = "<group>"; };
+		A3BC75D0238A115900A8995E /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
+		A3BC75D2238A32FC00A8995E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A3BC75D4238AD40700A8995E /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		A3BC75D6238AD42C00A8995E /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
+		A3BC75D8238AD46D00A8995E /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		A3BC75DA238AFEF600A8995E /* MatchesHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesHorizontalController.swift; sourceTree = "<group>"; };
+		A3BC75DC238AFF3F00A8995E /* MatchesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesHeader.swift; sourceTree = "<group>"; };
+		A3BC75DE238B004800A8995E /* MatchesNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesNavBar.swift; sourceTree = "<group>"; };
 		A3C264C02305350A00B2C8C6 /* SwipeMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C264C32305350A00B2C8C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3C264C82305350A00B2C8C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,6 +146,7 @@
 			children = (
 				A3BC75C5238710E000A8995E /* MatchesMessagesController.swift */,
 				A3BC75C9238831C900A8995E /* ChatLogController.swift */,
+				A3BC75DA238AFEF600A8995E /* MatchesHorizontalController.swift */,
 			);
 			path = MatchesMessages;
 			sourceTree = "<group>";
@@ -140,6 +155,11 @@
 			isa = PBXGroup;
 			children = (
 				A3BC75CE2389899700A8995E /* MessagesNavBar.swift */,
+				A3BC75D8238AD46D00A8995E /* MessageCell.swift */,
+				A3BC75D0238A115900A8995E /* CustomInputAccessoryView.swift */,
+				A3BC75D6238AD42C00A8995E /* MatchCell.swift */,
+				A3BC75DC238AFF3F00A8995E /* MatchesHeader.swift */,
+				A3BC75DE238B004800A8995E /* MatchesNavBar.swift */,
 			);
 			path = MatchesMessages;
 			sourceTree = "<group>";
@@ -193,6 +213,8 @@
 			children = (
 				A3C264D92305354D00B2C8C6 /* User.swift */,
 				A3C264DB2305355D00B2C8C6 /* Advertiser.swift */,
+				A3BC75D2238A32FC00A8995E /* Message.swift */,
+				A3BC75D4238AD40700A8995E /* Match.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,7 +232,6 @@
 				A3BC75BE2385E6A300A8995E /* MatchView.swift */,
 				A3BC75C023860C4D00A8995E /* SendMessageButton.swift */,
 				A3BC75C223860FC200A8995E /* KeepSwipingButton.swift */,
-				A3BC75C72387390A00A8995E /* MatchesNavBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,20 +376,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				A331F3B22307CC9A0009A093 /* Bindable.swift in Sources */,
+				A3BC75DB238AFEF600A8995E /* MatchesHorizontalController.swift in Sources */,
 				A3BC75C323860FC200A8995E /* KeepSwipingButton.swift in Sources */,
 				A3C264E12305358600B2C8C6 /* CardView.swift in Sources */,
 				A3C264EC230535E200B2C8C6 /* RegistrationViewModel.swift in Sources */,
+				A3BC75D3238A32FC00A8995E /* Message.swift in Sources */,
 				A3C264EF2305360900B2C8C6 /* Extensions+UIView.swift in Sources */,
 				A3BC75BF2385E6A300A8995E /* MatchView.swift in Sources */,
 				A3C264DC2305355D00B2C8C6 /* Advertiser.swift in Sources */,
 				A3C264DA2305354D00B2C8C6 /* User.swift in Sources */,
 				A3BC75C123860C4D00A8995E /* SendMessageButton.swift in Sources */,
 				A3C264E8230535C700B2C8C6 /* HomeController.swift in Sources */,
+				A3BC75DD238AFF3F00A8995E /* MatchesHeader.swift in Sources */,
 				A3BC75AB237F0C5C00A8995E /* AgeRangeCell.swift in Sources */,
 				A3BC75CF2389899700A8995E /* MessagesNavBar.swift in Sources */,
 				A3BC75C6238710E000A8995E /* MatchesMessagesController.swift in Sources */,
+				A3BC75D7238AD42C00A8995E /* MatchCell.swift in Sources */,
 				A3C264DF2305357900B2C8C6 /* TopNavigationStackView.swift in Sources */,
 				A3C264EA230535D500B2C8C6 /* RegistrationController.swift in Sources */,
+				A3BC75D9238AD46D00A8995E /* MessageCell.swift in Sources */,
 				A3C264E32305359900B2C8C6 /* HomeBottomControlsStackView.swift in Sources */,
 				A3BC75B32380B7EF00A8995E /* UserDetailsViewController.swift in Sources */,
 				A3BC75A7237EE3F400A8995E /* SettingsController.swift in Sources */,
@@ -376,8 +402,10 @@
 				A3C264C42305350A00B2C8C6 /* AppDelegate.swift in Sources */,
 				A3C264D72305353A00B2C8C6 /* CardViewModel.swift in Sources */,
 				A3C264E5230535AD00B2C8C6 /* CustomTextField.swift in Sources */,
-				A3BC75C82387390A00A8995E /* MatchesNavBar.swift in Sources */,
+				A3BC75D5238AD40700A8995E /* Match.swift in Sources */,
+				A3BC75D1238A115900A8995E /* CustomInputAccessoryView.swift in Sources */,
 				A3BC75BB2380BC0900A8995E /* LoginViewModel.swift in Sources */,
+				A3BC75DF238B004800A8995E /* MatchesNavBar.swift in Sources */,
 				A3BC75BD2380CC6B00A8995E /* SwipingPhotosController.swift in Sources */,
 				A3BC75CA238831C900A8995E /* ChatLogController.swift in Sources */,
 				A3BC75A9237EF65300A8995E /* SettingsCell.swift in Sources */,

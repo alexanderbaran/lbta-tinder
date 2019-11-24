@@ -2,7 +2,7 @@
 //  MatchesNavBar.swift
 //  SwipeMatch
 //
-//  Created by Alexander Baran on 21/11/2019.
+//  Created by Alexander Baran on 24/11/2019.
 //  Copyright © 2019 Alexander Baran. All rights reserved.
 //
 
