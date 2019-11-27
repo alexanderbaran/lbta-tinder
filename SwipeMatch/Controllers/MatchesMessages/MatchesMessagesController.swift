@@ -64,9 +64,23 @@ class MatchesMessagesController: LBTAListHeaderController<RecentMessageCell, Rec
     
     var recentMessagesDictionary = [String: RecentMessage]()
     
+    var listener: ListenerRegistration?
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isMovingFromParent {
+            listener?.remove()
+        }
+    }
+    
+    deinit {
+        print("MatchesMessagesController deinit")
+    }
+    
     private func fetchRecentMessages() {
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
-        Firestore.firestore().collection("matches_messages").document(currentUserId).collection("recent_messages").addSnapshotListener { (querySnapshot: QuerySnapshot?, err: Error?) in
+        let query = Firestore.firestore().collection("matches_messages").document(currentUserId).collection("recent_messages")
+        listener = query.addSnapshotListener { (querySnapshot: QuerySnapshot?, err: Error?) in
             if let err = err {
                 print("Failed to get recent_messages:", err)
                 return
@@ -82,6 +96,14 @@ class MatchesMessagesController: LBTAListHeaderController<RecentMessageCell, Rec
             self.resetItems()
 //            self.collectionView.reloadData()
         }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let recentMessage = self.items[indexPath.item]
+        let dictionary = ["name": recentMessage.name, "profileImageUrl": recentMessage.profileImageUrl, "uid": recentMessage.uid]
+        let match = Match(dictionary: dictionary)
+        let chatLogController = ChatLogController(match: match)
+        navigationController?.pushViewController(chatLogController, animated: true)
     }
     
     private func resetItems() {

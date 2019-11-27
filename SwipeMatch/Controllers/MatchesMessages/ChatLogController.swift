@@ -30,11 +30,35 @@ class ChatLogController: LBTAListController<MessageCell, Message>, UICollectionV
     
     @objc private func handleSend() {
         print(customInputView.textView.text ?? "")
-        
+        saveToFromMessages()
+        saveToFromRecentMessages()
+    }
+    
+    private func saveToFromRecentMessages() {
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
-        
+        let data: [String: Any] = ["text": customInputView.textView.text ?? "", "name": match.name, "profileImageUrl": match.profileImageUrl, "timestamp": Timestamp(date: Date()), "uid": match.uid]
+        Firestore.firestore().collection("matches_messages").document(currentUserId).collection("recent_messages").document(match.uid).setData(data) { (err: Error?) in
+            if let err = err {
+                print("Could not save recent message:", err)
+                return
+            }
+            print("Saved recent message")
+        }
+        guard let currentUser = self.currentUser else { return }
+        let toData: [String: Any] = ["text": customInputView.textView.text ?? "", "name": currentUser.name ?? "", "profileImageUrl": currentUser.imageUrl1 ?? "", "timestamp": Timestamp(date: Date()), "uid": currentUser.uid ?? ""]
+        // Save the other direction
+        Firestore.firestore().collection("matches_messages").document(match.uid).collection("recent_messages").document(currentUserId).setData(toData) { (err: Error?) in
+            if let err = err {
+                print("Could not save recent message:", err)
+                return
+            }
+            print("Saved recent message")
+        }
+    }
+    
+    private func saveToFromMessages() {
+        guard let currentUserId = Auth.auth().currentUser?.uid else { return }
         let data: [String: Any] = ["text": customInputView.textView.text ?? "", "fromId": currentUserId, "toId": match.uid, "timestamp": Timestamp(date: Date())]
-        
         let collection = Firestore.firestore().collection("matches_messages").document(currentUserId).collection(match.uid)
         collection.addDocument(data: data) { (err: Error?) in
             if let err = err {
@@ -67,12 +91,14 @@ class ChatLogController: LBTAListController<MessageCell, Message>, UICollectionV
         return true
     }
     
+    var listener: ListenerRegistration?
+    
     private func fetchMessages() {
         print("Fetching messages")
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
         let query = Firestore.firestore().collection("matches_messages").document(currentUserId).collection(match.uid).order(by: "timestamp")
         
-        query.addSnapshotListener { (querySnapshot: QuerySnapshot?, err: Error?) in
+        listener = query.addSnapshotListener { (querySnapshot: QuerySnapshot?, err: Error?) in
             if let err = err {
                 print("Failed to get messages:", err)
                 return
@@ -99,8 +125,32 @@ class ChatLogController: LBTAListController<MessageCell, Message>, UICollectionV
 //        }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Tells you if it's being popped off the nav stack.
+        // If you add another view on top, maybe you don't want to remove listner just yet, but if it is being popped off then controller must be able to deinit.
+        if isMovingFromParent {
+            listener?.remove()
+        }
+    }
+    
+    var currentUser: User?
+    
+    private func fetchCurrentUser() {
+        Firestore.firestore().collection("users").document(Auth.auth().currentUser?.uid ?? "").getDocument { (documentSnapshot: DocumentSnapshot?, err: Error?) in
+            if let err = err {
+                print("Failed to fetch current user:", err)
+                return
+            }
+            let data = documentSnapshot?.data() ?? [:]
+            self.currentUser = User(dictionary: data)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchCurrentUser()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         
@@ -128,6 +178,10 @@ class ChatLogController: LBTAListController<MessageCell, Message>, UICollectionV
         let statusBarCover = UIView(backgroundColor: .white)
         view.addSubview(statusBarCover)
         statusBarCover.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.topAnchor, trailing: view.trailingAnchor)
+    }
+    
+    deinit {
+        print("ChatLogController deinit")
     }
     
     @objc private func handleKeyboardShow() {
